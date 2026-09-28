@@ -1,6 +1,6 @@
 # Privacy Policy for LLM-Translate
 
-**Last Updated:** July 23, 2025
+**Last Updated:** September 28, 2026
 
 Thank you for using LLM-Translate. Your privacy is important to us. This privacy policy explains what information the extension handles and why.
 
@@ -13,7 +13,7 @@ We do not have a server, and we do not collect or store any of your personal inf
 To provide its features, the extension handles the following data:
 
 1.  **API Keys (Authentication Information):**
-    *   You provide an API key for a third-party Large Language Model (LLM) service (e.g., Google Gemini, Silicon Flow).
+    *   You provide an API key for a third-party Large Language Model (LLM) service (e.g., Google Gemini, Silicon Flow, OrcaRouter).
     *   **How it's used:** This key is required to authenticate your requests with the service provider.
     *   **How it's stored:** The key is saved exclusively on your local device using the `chrome.storage` API. It is never sent to us or any other service besides the one you configured.
 
@@ -22,6 +22,9 @@ To provide its features, the extension handles the following data:
     *   **How it's used:** This text is sent directly to the third-party LLM service you have configured for the sole purpose of translation.
     *   **How it's stored:** This text is not stored by the extension. It is used only for the immediate translation request.
 
+3.  **Screenshots for Translation:**
+    *   When you select an area for screenshot translation, that cropped image is sent to your selected model provider. For OrcaRouter, the image is sent inline with the translation request.
+
 ### Third-Party Services
 
 When you use the extension, the text you translate and your API key are sent to the third-party service you have selected. Your data becomes subject to their privacy policies. We encourage you to review them:
@@ -29,6 +32,7 @@ When you use the extension, the text you translate and your API key are sent to 
 *   **Google Gemini:** [Google Privacy Policy](https://policies.google.com/privacy)
 *   **Silicon Flow:** [Privacy Policy](https://docs.siliconflow.cn/en/legals/privacy-policy)
 *   **Openrouter:** [Privacy Policy](https://openrouter.ai/privacy)
+*   **OrcaRouter:** [Privacy Policy](https://www.orcarouter.ai/privacy.html)
 
 ### Data Security
 

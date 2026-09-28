@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "Label for the OpenRouter provider tab."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Label for the Ollama provider tab."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "OpenRouter API Key",
         "description": "Label for the OpenRouter API key input."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "OrcaRouter API Key"
     },
     "ollamaUrlLabel": {
         "message": "Ollama Server URL",
@@ -79,6 +85,9 @@
         "message": "Enter your OpenRouter API key",
         "description": "Placeholder for the OpenRouter API key input."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "Enter your OrcaRouter API key"
+    },
     "ollamaUrlPlaceholder": {
         "message": "Enter your Ollama server URL (e.g., http://localhost:11434)",
         "description": "Placeholder for the Ollama URL input."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "Only free models that support image input are shown.",
         "description": "Hint for selecting an OpenRouter model."
+    },
+    "orcarouterModelHint": {
+        "message": "Shows chat models with text and image input. Free models are listed first; paid models may incur charges."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "Select any model you have installed locally in Ollama.",
@@ -154,6 +170,18 @@
                 "example": "Network error."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "Model list unavailable"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "The saved model is no longer available. Choose another model."
+    },
+    "orcarouterChooseModel": {
+        "message": "Choose a model"
+    },
+    "orcarouterNoModels": {
+        "message": "No compatible text and image models are available."
     },
     "statusApiKeySaved": {
         "message": "API key saved. Fetching models...",

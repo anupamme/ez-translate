@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "OpenRouter 공급자 탭의 라벨입니다."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Ollama 공급자 탭의 라벨입니다."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "OpenRouter API 키",
         "description": "OpenRouter API 키 입력에 대한 라벨입니다."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "OrcaRouter API 키"
     },
     "ollamaUrlLabel": {
         "message": "Ollama 서버 URL",
@@ -79,6 +85,9 @@
         "message": "OpenRouter API 키를 입력하세요",
         "description": "OpenRouter API 키 입력에 대한 자리 표시자입니다."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "OrcaRouter API 키를 입력하세요"
+    },
     "ollamaUrlPlaceholder": {
         "message": "Ollama 서버 URL을 입력하세요 (예: http://localhost:11434)",
         "description": "Ollama URL 입력에 대한 자리 표시자입니다."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "이미지 입력을 지원하는 무료 모델만 표시됩니다.",
         "description": "OpenRouter 모델 선택에 대한 힌트입니다."
+    },
+    "orcarouterModelHint": {
+        "message": "텍스트와 이미지를 지원하는 채팅 모델을 표시하며 무료 모델이 먼저 나옵니다. 유료 모델은 요금이 발생할 수 있습니다."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "Ollama에 로컬로 설치된 모든 모델을 선택하세요.",
@@ -154,6 +170,18 @@
                 "example": "네트워크 오류."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "모델 목록을 사용할 수 없습니다"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "저장된 모델을 더 이상 사용할 수 없습니다. 다시 선택하세요."
+    },
+    "orcarouterChooseModel": {
+        "message": "모델 선택"
+    },
+    "orcarouterNoModels": {
+        "message": "호환되는 모델이 없습니다."
     },
     "statusApiKeySaved": {
         "message": "API 키가 저장되었습니다. 모델을 가져오는 중...",

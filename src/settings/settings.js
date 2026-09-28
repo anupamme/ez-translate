@@ -66,6 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 modelSelect: document.getElementById('openrouter-model-select'),
                 fetchButton: document.querySelector('.fetch-models-button[data-provider="openrouter"]'),
             },
+            orcarouter: {
+                apiKeyInput: document.getElementById('orcarouter-api-key'),
+                modelSelect: document.getElementById('orcarouter-model-select'),
+                fetchButton: document.querySelector('.fetch-models-button[data-provider="orcarouter"]'),
+            },
             ollama: {
                 apiKeyInput: document.getElementById('ollama-url'),
                 modelSelect: document.getElementById('ollama-model-select'),
@@ -109,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (providerName === 'gemini') await fetchGeminiModels(inputValue);
             else if (providerName === 'siliconflow') await fetchSiliconFlowModels(inputValue);
             else if (providerName === 'openrouter') await fetchOpenRouterModels(inputValue);
+            else if (providerName === 'orcarouter') await fetchOrcaRouterModels(inputValue);
         }
     }
 
@@ -178,6 +184,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    async function fetchOrcaRouterModels(apiKey) {
+        const modelSelect = elements.providers.orcarouter.modelSelect;
+        modelSelect.innerHTML = `<option>${chrome.i18n.getMessage('statusFetchingModels')}</option>`;
+        modelSelect.disabled = true;
+        try {
+            const response = await fetch('https://api.orcarouter.ai/v1/models', {
+                headers: { 'Authorization': `Bearer ${apiKey}` }
+            });
+            if (!response.ok) {
+                const errorBody = await response.json().catch(() => ({}));
+                throw new Error(errorBody.error?.message || `HTTP ${response.status}`);
+            }
+            const data = await response.json();
+            if (!Array.isArray(data.data)) throw new Error('Invalid model list');
+            const modelsById = new Map(data.data.map(model => [model.id, model]));
+            const isFreeModel = model =>
+                model.id.endsWith('-free') || Number(model.pricing?.request) === 0;
+            const modelCapabilities = model => {
+                const baseModel = model.id.endsWith('-free')
+                    ? modelsById.get(model.id.slice(0, -'-free'.length))
+                    : null;
+                return {
+                    endpointTypes: model.supported_endpoint_types || baseModel?.supported_endpoint_types,
+                    architecture: model.architecture || baseModel?.architecture,
+                };
+            };
+            const models = data.data.filter(model => {
+                if (typeof model.id !== 'string') return false;
+                const { endpointTypes, architecture } = modelCapabilities(model);
+                return endpointTypes?.includes('openai') &&
+                    architecture?.input_modalities?.includes('text') &&
+                    architecture.input_modalities.includes('image') &&
+                    architecture?.output_modalities?.includes('text');
+            }).sort((a, b) =>
+                Number(isFreeModel(b)) - Number(isFreeModel(a)) || a.id.localeCompare(b.id)
+            );
+
+            const { orcarouterSelectedModel } = await chrome.storage.local.get('orcarouterSelectedModel');
+            modelSelect.innerHTML = '';
+            if (models.length === 0) {
+                await chrome.storage.local.remove('orcarouterSelectedModel');
+                modelSelect.add(new Option(chrome.i18n.getMessage('orcarouterNoModels'), ''));
+                showStatus(chrome.i18n.getMessage('orcarouterNoModels'), 'error');
+                return;
+            }
+            modelSelect.add(new Option(chrome.i18n.getMessage('orcarouterChooseModel'), ''));
+            models.forEach(model => {
+                const label = isFreeModel(model)
+                    ? chrome.i18n.getMessage('orcarouterFreeModelLabel', [model.id])
+                    : model.id;
+                modelSelect.add(new Option(label, model.id));
+            });
+            modelSelect.value = models.some(model => model.id === orcarouterSelectedModel) ? orcarouterSelectedModel : '';
+            if (orcarouterSelectedModel && !modelSelect.value) {
+                await chrome.storage.local.remove('orcarouterSelectedModel');
+                showStatus(chrome.i18n.getMessage('orcarouterModelUnavailable'), 'error');
+            } else {
+                showStatus(chrome.i18n.getMessage('statusModelsSuccess'), 'success');
+            }
+            modelSelect.disabled = false;
+        } catch (error) {
+            modelSelect.innerHTML = '';
+            modelSelect.add(new Option(chrome.i18n.getMessage('orcarouterFetchFailed'), ''));
+            showStatus(chrome.i18n.getMessage('statusModelsFailed', [error.message]), 'error');
+        }
+    }
+
     async function fetchOllamaModels(ollamaUrl) {
         const modelSelect = elements.providers.ollama.modelSelect;
         modelSelect.innerHTML = `<option>${chrome.i18n.getMessage('statusFetchingModels')}</option>`;
@@ -221,6 +294,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveSelectedModel(providerName) {
         const { modelSelect } = elements.providers[providerName];
+        if (providerName === 'orcarouter' && !modelSelect.value) {
+            chrome.storage.local.remove('orcarouterSelectedModel');
+            return;
+        }
         if (modelSelect.value) {
             const key = `${providerName}SelectedModel`;
             chrome.storage.local.set({ [key]: modelSelect.value }, () => {
@@ -230,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadAllSettings() {
-        const keys = ['activeProvider', 'geminiApiKey', 'siliconflowApiKey', 'openrouterApiKey', 'ollamaUrl', 'geminiSelectedModel', 'siliconflowSelectedModel', 'openrouterSelectedModel', 'ollamaSelectedModel', 'targetLanguage', 'secondTargetLanguage'];
+        const keys = ['activeProvider', 'geminiApiKey', 'siliconflowApiKey', 'openrouterApiKey', 'orcarouterApiKey', 'ollamaUrl', 'geminiSelectedModel', 'siliconflowSelectedModel', 'openrouterSelectedModel', 'orcarouterSelectedModel', 'ollamaSelectedModel', 'targetLanguage', 'secondTargetLanguage'];
         chrome.storage.local.get(keys, (result) => {
             if (result.activeProvider) switchTab(result.activeProvider);
             if (result.geminiApiKey) {
@@ -244,6 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.openrouterApiKey) {
                 elements.providers.openrouter.apiKeyInput.value = result.openrouterApiKey;
                 fetchOpenRouterModels(result.openrouterApiKey);
+            }
+            if (result.orcarouterApiKey) {
+                elements.providers.orcarouter.apiKeyInput.value = result.orcarouterApiKey;
+                fetchOrcaRouterModels(result.orcarouterApiKey);
             }
             if (result.ollamaUrl) {
                 elements.providers.ollama.apiKeyInput.value = result.ollamaUrl;

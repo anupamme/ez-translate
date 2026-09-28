@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "تسمية علامة تبويب مزود OpenRouter."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "تسمية علامة تبويب مزود Ollama."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "مفتاح OpenRouter API",
         "description": "تسمية حقل إدخال مفتاح OpenRouter API."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "مفتاح واجهة OrcaRouter"
     },
     "ollamaUrlLabel": {
         "message": "رابط خادم Ollama",
@@ -79,6 +85,9 @@
         "message": "أدخل مفتاح OpenRouter API الخاص بك",
         "description": "نص نائب لحقل إدخال مفتاح OpenRouter API."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "أدخل مفتاح OrcaRouter"
+    },
     "ollamaUrlPlaceholder": {
         "message": "أدخل رابط خادم Ollama الخاص بك (مثال: http://localhost:11434)",
         "description": "نص نائب لحقل إدخال رابط Ollama."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "يتم عرض النماذج المجانية فقط التي تدعم إدخال الصور.",
         "description": "تلميح لاختيار نموذج OpenRouter."
+    },
+    "orcarouterModelHint": {
+        "message": "تُعرض نماذج المحادثة التي تدعم النصوص والصور، مع النماذج المجانية أولاً. قد تُفرض رسوم على النماذج المدفوعة."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "اختر أي نموذج مثبت محليًا في Ollama.",
@@ -154,6 +170,18 @@
                 "example": "خطأ في الشبكة."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "قائمة النماذج غير متاحة"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "النموذج المحفوظ لم يعد متاحًا. اختر نموذجًا آخر."
+    },
+    "orcarouterChooseModel": {
+        "message": "اختر نموذجًا"
+    },
+    "orcarouterNoModels": {
+        "message": "لا توجد نماذج متوافقة مع النصوص والصور."
     },
     "statusApiKeySaved": {
         "message": "تم حفظ مفتاح API. جارٍ جلب النماذج...",

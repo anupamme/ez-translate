@@ -610,6 +610,8 @@ async function handleTranslation(text, targetLanguage, secondTargetLanguage, sen
             translation = await callSiliconFlowAPI(text, apiKey, modelName, actualTargetLanguage, secondTargetLanguage);
         } else if (provider === 'openrouter') {
             translation = await callOpenRouterAPI(text, apiKey, modelName, actualTargetLanguage, secondTargetLanguage);
+        } else if (provider === 'orcarouter') {
+            translation = await callOrcaRouterAPI(text, apiKey, modelName, actualTargetLanguage, secondTargetLanguage);
         } else if (provider === 'ollama') {
             translation = await callOllamaAPI(text, ollamaUrl, modelName, actualTargetLanguage, secondTargetLanguage);
         } else {
@@ -707,6 +709,8 @@ async function handleCaptureAndTranslateImage(rect, sender, sendResponse) {
             translation = await visionTranslateOpenAICompatible(croppedDataUrl);
         } else if (provider === 'openrouter') {
             translation = await visionTranslateOpenRouter(croppedDataUrl);
+        } else if (provider === 'orcarouter') {
+            translation = await visionTranslateOrcaRouter(croppedDataUrl);
         } else if (provider === 'ollama') {
             translation = await visionTranslateOllama(croppedDataUrl);
         } else {
@@ -803,6 +807,20 @@ async function visionTranslateOpenRouter(imageDataUrl) {
     if (!resp.ok) throw new Error('OpenRouter Vision 请求失败');
     const data = await resp.json();
     return data.choices?.[0]?.message?.content?.trim() || '';
+}
+
+async function visionTranslateOrcaRouter(imageDataUrl) {
+    const { orcarouterApiKey, orcarouterSelectedModel, targetLanguage, secondTargetLanguage } = await chrome.storage.local.get(['orcarouterApiKey', 'orcarouterSelectedModel', 'targetLanguage', 'secondTargetLanguage']);
+    if (!orcarouterApiKey || !orcarouterSelectedModel) throw new Error('OrcaRouter API 或模型未配置');
+    const target = mapLangKeyToEnName(targetLanguage || 'langSimplifiedChinese');
+    const second = mapLangKeyToEnName(secondTargetLanguage || 'langEnglish');
+    const prompt = chrome.i18n.getMessage('imageTranslationPrompt', [target, second]);
+    return callOrcaRouterChat(orcarouterApiKey, orcarouterSelectedModel, [
+        { role: 'user', content: [
+            { type: 'text', text: prompt },
+            { type: 'image_url', image_url: { url: imageDataUrl } }
+        ] }
+    ]);
 }
 
 async function visionTranslateOllama(imageDataUrl) {
@@ -911,6 +929,29 @@ async function callOpenRouterAPI(text, apiKey, modelName, targetLanguage, second
     }
     const data = await response.json();
     return data.choices[0].message.content.trim();
+}
+
+async function callOrcaRouterAPI(text, apiKey, modelName, targetLanguage, secondTargetLanguage) {
+    const prompt = chrome.i18n.getMessage('translationPrompt', [targetLanguage, secondTargetLanguage, text]);
+    return callOrcaRouterChat(apiKey, modelName, [{ role: 'user', content: prompt }]);
+}
+
+async function callOrcaRouterChat(apiKey, modelName, messages) {
+    const response = await fetch('https://api.orcarouter.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: modelName, messages })
+    });
+    if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        throw new Error(errorBody.error?.message || `OrcaRouter HTTP ${response.status}`);
+    }
+    const data = await response.json();
+    const translation = data.choices?.[0]?.message?.content;
+    if (typeof translation !== 'string' || !translation.trim()) {
+        throw new Error('OrcaRouter 返回的译文为空');
+    }
+    return translation.trim();
 }
 
 /**

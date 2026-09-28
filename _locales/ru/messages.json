@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "Надпись для вкладки провайдера OpenRouter."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Надпись для вкладки провайдера Ollama."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "Ключ API OpenRouter",
         "description": "Надпись для ввода ключа API OpenRouter."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "Ключ API OrcaRouter"
     },
     "ollamaUrlLabel": {
         "message": "URL сервера Ollama",
@@ -79,6 +85,9 @@
         "message": "Введите ваш ключ API OpenRouter",
         "description": "Заполнитель для ввода ключа API OpenRouter."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "Введите ключ API OrcaRouter"
+    },
     "ollamaUrlPlaceholder": {
         "message": "Введите URL вашего сервера Ollama (например, http://localhost:11434)",
         "description": "Заполнитель для ввода URL Ollama."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "Показываются только бесплатные модели, поддерживающие ввод изображений.",
         "description": "Подсказка по выбору модели OpenRouter."
+    },
+    "orcarouterModelHint": {
+        "message": "Показаны модели чата с поддержкой текста и изображений; бесплатные идут первыми. Платные модели могут списывать средства."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "Выберите любую модель, установленную локально в Ollama.",
@@ -154,6 +170,18 @@
                 "example": "Сетевая ошибка."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "Список моделей недоступен"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "Сохранённая модель больше недоступна. Выберите другую."
+    },
+    "orcarouterChooseModel": {
+        "message": "Выберите модель"
+    },
+    "orcarouterNoModels": {
+        "message": "Нет совместимых моделей для текста и изображений."
     },
     "statusApiKeySaved": {
         "message": "Ключ API сохранен. Получение моделей...",

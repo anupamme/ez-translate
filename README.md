@@ -42,6 +42,13 @@ Unlike traditional machine translation, this plugin aims to understand the nuanc
           <small>Local AI deployment</small>
         </a>
       </td>
+      <td align="center" width="200" height="200">
+        <a href="https://www.orcarouter.ai/ref/ref_67f8fda37658a5a8e93f" target="_blank">
+          <img src="logos/orcarouter.png" alt="OrcaRouter" width="200"><br>
+          <strong>OrcaRouter</strong><br>
+          <small>OpenAI-compatible model gateway</small>
+        </a>
+      </td>
     </tr>
   </table>
 </div>
@@ -63,7 +70,7 @@ This method is recommended if you cannot access the Chrome Web Store.
 
 ## Core Features
 
-*   **Multi-provider Support:** Supports configuring multiple Large Language Model providers (currently supports **Google Gemini**, **Silicon Flow**, **OpenRouter**, and **Ollama**), allowing you to freely choose the most suitable model.
+*   **Multi-provider Support:** Supports configuring multiple Large Language Model providers (currently supports **Google Gemini**, **Silicon Flow**, **OpenRouter**, **OrcaRouter**, and **Ollama**), allowing you to freely choose the most suitable model.
 *   **Instant Hover Translation:** Select text on any web page, and a translation icon will appear next to your mouse. Click it to see the translation result in place for a smooth and uninterrupted experience.
 *   **🆕 Context Menu Translation:** Right-click on selected text to access translation options directly from the context menu. Choose between your primary or secondary target language for instant translation in a centered popup window.
 *   **📸 Screenshot Translation:** Capture any area of the webpage and translate text within images using AI vision capabilities. Perfect for translating text in images, PDFs, or screenshots.
@@ -77,6 +84,10 @@ This method is recommended if you cannot access the Chrome Web Store.
 *   **Intelligent Language Detection:** Automatically detects when source language matches target language and switches to second target language.
 *   **Comprehensive Language Support:** Supports 100+ languages with native translations for all interface elements.
 
+
+### OrcaRouter
+
+Get an API key from the [OrcaRouter dashboard](https://www.orcarouter.ai/ref/ref_67f8fda37658a5a8e93f), then enter it in the OrcaRouter settings tab and fetch models. Select a model to enable text and screenshot translation. The list shows chat models that declare text and image input through the OpenAI-compatible endpoint. Free models are marked with 🆓 and listed first; paid model usage may incur charges.
 
 ## Features to Implement
 *   **Custom Translation Styles:** Allow users to customize translation tone (formal, casual, technical, etc.).

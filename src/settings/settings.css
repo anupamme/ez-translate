@@ -14,7 +14,7 @@ label a:hover { text-decoration: underline; }
 .hint { font-size: 12px; color: #6c757d; margin: -5px 0 10px 0; }
 
 /* --- 标签页系统 (Tab System) --- */
-.tabs { display: flex; border-bottom: 2px solid #dee2e6; margin-bottom: 20px; }
+.tabs { display: flex; flex-wrap: wrap; border-bottom: 2px solid #dee2e6; margin-bottom: 20px; }
 .tab-content { display: none; }
 .tab-content.active { display: block; }
 

@@ -39,6 +39,13 @@ EZ Translate 是一款现代化的浏览器翻译插件，它利用大型语言�
           <small>本地AI部署方案</small>
         </a>
       </td>
+      <td align="center" width="200" height="200">
+        <a href="https://www.orcarouter.ai/ref/ref_67f8fda37658a5a8e93f" target="_blank">
+          <img src="logos/orcarouter.png" alt="OrcaRouter" width="200"><br>
+          <strong>OrcaRouter</strong><br>
+          <small>兼容 OpenAI 接口的模型网关</small>
+        </a>
+      </td>
     </tr>
   </table>
 </div>
@@ -61,7 +68,7 @@ EZ Translate 是一款现代化的浏览器翻译插件，它利用大型语言�
 
 ## 核心功能
 
-*   **多提供商支持:** 支持配置多个大型语言模型提供商 (当前支持 **Google Gemini**、**Silicon Flow**、**OpenRouter** 和 **Ollama**)，让您自由选择最适合的模型。
+*   **多提供商支持:** 支持配置多个大型语言模型提供商 (当前支持 **Google Gemini**、**Silicon Flow**、**OpenRouter**、**OrcaRouter** 和 **Ollama**)，让您自由选择最适合的模型。
 *   **即时划词翻译:** 在任何网页上选择文本，即可在鼠标旁看到翻译图标，点击后立刻在原地显示翻译结果，体验流畅无打扰。
 *   **🆕 右键菜单翻译:** 选中文字后右键点击，直接从上下文菜单访问翻译选项。可选择翻译为主要或次要目标语言，翻译结果将在居中弹窗中显示。
 *   **📸 截图翻译:** 捕获网页任意区域，使用AI视觉能力翻译图片中的文字。完美适用于翻译图片、PDF或截图中的文本。
@@ -82,6 +89,10 @@ EZ Translate 是一款现代化的浏览器翻译插件，它利用大型语言�
 *   **语音合成:** `Web Speech API`
 
 ## 提供商详情
+
+### OrcaRouter
+
+在 [OrcaRouter 控制台](https://www.orcarouter.ai/ref/ref_67f8fda37658a5a8e93f) 创建 API 密钥，在设置页的 OrcaRouter 标签输入密钥并获取模型，然后选择模型即可使用文字与截图翻译。列表显示通过 OpenAI 兼容端点声明支持图文输入的聊天模型；免费模型使用 🆓 标记并排在最前，付费模型可能产生费用。
 
 ### 🌐 OpenRouter 集成 (新增)
 

@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "OpenRouter प्रदाता टैब के लिए लेबल।"
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "ओलामा",
         "description": "ओलामा प्रदाता टैब के लिए लेबल।"
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "OpenRouter API कुंजी",
         "description": "OpenRouter API कुंजी इनपुट के लिए लेबल।"
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "OrcaRouter API कुंजी"
     },
     "ollamaUrlLabel": {
         "message": "ओलामा सर्वर URL",
@@ -79,6 +85,9 @@
         "message": "अपनी OpenRouter API कुंजी दर्ज करें",
         "description": "OpenRouter API कुंजी इनपुट के लिए प्लेसहोल्डर।"
     },
+    "orcarouterApiPlaceholder": {
+        "message": "अपनी OrcaRouter API कुंजी दर्ज करें"
+    },
     "ollamaUrlPlaceholder": {
         "message": "अपना ओलामा सर्वर URL दर्ज करें (जैसे, http://localhost:11434)",
         "description": "ओलामा URL इनपुट के लिए प्लेसहोल्डर।"
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "केवल मुफ्त मॉडल जो छवि इनपुट का समर्थन करते हैं, दिखाए जाते हैं।",
         "description": "OpenRouter मॉडल चुनने के लिए संकेत।"
+    },
+    "orcarouterModelHint": {
+        "message": "पाठ और छवि समर्थित चैट मॉडल दिखाए जाते हैं, जिनमें मुफ़्त मॉडल पहले हैं। सशुल्क मॉडल पर शुल्क लग सकता है।"
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "ओलामा में स्थानीय रूप से इंस्टॉल किए गए किसी भी मॉडल का चयन करें।",
@@ -154,6 +170,18 @@
                 "example": "नेटवर्क त्रुटि।"
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "मॉडल सूची उपलब्ध नहीं है"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "सहेजा गया मॉडल अब उपलब्ध नहीं है। दूसरा मॉडल चुनें।"
+    },
+    "orcarouterChooseModel": {
+        "message": "मॉडल चुनें"
+    },
+    "orcarouterNoModels": {
+        "message": "कोई संगत पाठ और छवि मॉडल उपलब्ध नहीं है।"
     },
     "statusApiKeySaved": {
         "message": "एपीआई कुंजी सहेजी गई। मॉडल प्राप्त हो रहे हैं...",

@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "OpenRouter প্রদানকারী ট্যাবের জন্য লেবেল।"
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "ওলামা",
         "description": "ওলামা প্রদানকারী ট্যাবের জন্য লেবেল।"
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "OpenRouter API কী",
         "description": "OpenRouter API কী ইনপুটের জন্য লেবেল।"
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "OrcaRouter API কী"
     },
     "ollamaUrlLabel": {
         "message": "ওলামা সার্ভার URL",
@@ -79,6 +85,9 @@
         "message": "আপনার OpenRouter API কী লিখুন",
         "description": "OpenRouter API কী ইনপুটের জন্য স্থানধারক।"
     },
+    "orcarouterApiPlaceholder": {
+        "message": "আপনার OrcaRouter API কী লিখুন"
+    },
     "ollamaUrlPlaceholder": {
         "message": "আপনার ওলামা সার্ভার URL লিখুন (যেমন, http://localhost:11434)",
         "description": "ওলামা URL ইনপুটের জন্য স্থানধারক।"
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "শুধুমাত্র বিনামূল্যের মডেল যা চিত্র ইনপুট সমর্থন করে সেগুলি দেখানো হয়।",
         "description": "OpenRouter মডেল নির্বাচন করার জন্য ইঙ্গিত।"
+    },
+    "orcarouterModelHint": {
+        "message": "টেক্সট ও ছবি সমর্থিত চ্যাট মডেল দেখায়, বিনামূল্যের মডেল আগে থাকে। পেইড মডেলে খরচ হতে পারে।"
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "ওলামায় স্থানীয়ভাবে ইনস্টল করা যেকোনো মডেল নির্বাচন করুন।",
@@ -154,6 +170,18 @@
                 "example": "নেটওয়ার্ক ত্রুটি।"
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "মডেলের তালিকা পাওয়া যাচ্ছে না"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "সংরক্ষিত মডেল আর পাওয়া যাচ্ছে না। অন্যটি বেছে নিন।"
+    },
+    "orcarouterChooseModel": {
+        "message": "মডেল নির্বাচন করুন"
+    },
+    "orcarouterNoModels": {
+        "message": "উপযুক্ত টেক্সট ও ছবি মডেল নেই।"
     },
     "statusApiKeySaved": {
         "message": "এপিআই কী সংরক্ষিত হয়েছে। মডেল আনা হচ্ছে...",

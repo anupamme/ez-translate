@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "OpenRouterプロバイダータブのラベル。"
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Ollamaプロバイダータブのラベル。"
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "OpenRouter APIキー",
         "description": "OpenRouter APIキー入力のラベル。"
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "OrcaRouter API キー"
     },
     "ollamaUrlLabel": {
         "message": "OllamaサーバーURL",
@@ -79,6 +85,9 @@
         "message": "OpenRouter APIキーを入力してください",
         "description": "OpenRouter APIキー入力のプレースホルダー。"
     },
+    "orcarouterApiPlaceholder": {
+        "message": "OrcaRouter API キーを入力"
+    },
     "ollamaUrlPlaceholder": {
         "message": "OllamaサーバーURLを入力してください（例：http://localhost:11434）",
         "description": "Ollama URL入力のプレースホルダー。"
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "画像入力をサポートする無料モデルのみが表示されます。",
         "description": "OpenRouterモデルを選択するためのヒント。"
+    },
+    "orcarouterModelHint": {
+        "message": "テキストと画像に対応するチャットモデルを表示し、無料モデルを先頭に並べます。有料モデルでは料金が発生する場合があります。"
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "ローカルにインストールされているOllamaモデルを選択してください。",
@@ -154,6 +170,18 @@
                 "example": "ネットワークエラー。"
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "モデル一覧を取得できません"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "保存したモデルは利用できません。選び直してください。"
+    },
+    "orcarouterChooseModel": {
+        "message": "モデルを選択"
+    },
+    "orcarouterNoModels": {
+        "message": "対応するモデルがありません。"
     },
     "statusApiKeySaved": {
         "message": "APIキーが保存されました。モデルを取得中...",

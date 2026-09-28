@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "Etiqueta para la pestaña del proveedor OpenRouter."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Etiqueta para la pestaña del proveedor Ollama."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "Clave de API de OpenRouter",
         "description": "Etiqueta para la entrada de la clave de API de OpenRouter."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "Clave API de OrcaRouter"
     },
     "ollamaUrlLabel": {
         "message": "URL del Servidor Ollama",
@@ -79,6 +85,9 @@
         "message": "Introduce tu clave de API de OpenRouter",
         "description": "Marcador de posición para la entrada de la clave de API de OpenRouter."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "Introduce tu clave API de OrcaRouter"
+    },
     "ollamaUrlPlaceholder": {
         "message": "Introduce la URL de tu servidor Ollama (ej., http://localhost:11434)",
         "description": "Marcador de posición para la entrada de URL de Ollama."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "Solo se muestran modelos gratuitos que admiten entrada de imágenes.",
         "description": "Sugerencia para seleccionar un modelo de OpenRouter."
+    },
+    "orcarouterModelHint": {
+        "message": "Muestra modelos de chat que aceptan texto e imágenes, con los gratuitos primero. Los modelos de pago pueden generar cargos."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "Selecciona cualquier modelo que tengas instalado localmente en Ollama.",
@@ -154,6 +170,18 @@
                 "example": "Error de red."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "Lista de modelos no disponible"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "El modelo guardado ya no está disponible. Elige otro."
+    },
+    "orcarouterChooseModel": {
+        "message": "Elegir modelo"
+    },
+    "orcarouterNoModels": {
+        "message": "No hay modelos compatibles con texto e imágenes."
     },
     "statusApiKeySaved": {
         "message": "Clave de API guardada. Obteniendo modelos...",

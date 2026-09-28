@@ -39,6 +39,9 @@
         "message": "OpenRouter",
         "description": "Étiquette de l'onglet du fournisseur OpenRouter."
     },
+    "orcarouterProvider": {
+        "message": "OrcaRouter"
+    },
     "ollamaProvider": {
         "message": "Ollama",
         "description": "Étiquette de l'onglet du fournisseur Ollama."
@@ -54,6 +57,9 @@
     "openrouterApiKeyLabel": {
         "message": "Clé API OpenRouter",
         "description": "Étiquette pour le champ de saisie de la clé API OpenRouter."
+    },
+    "orcarouterApiKeyLabel": {
+        "message": "Clé API OrcaRouter"
     },
     "ollamaUrlLabel": {
         "message": "URL du serveur Ollama",
@@ -79,6 +85,9 @@
         "message": "Saisissez votre clé API OpenRouter",
         "description": "Texte de remplacement pour le champ de saisie de la clé API OpenRouter."
     },
+    "orcarouterApiPlaceholder": {
+        "message": "Saisissez votre clé API OrcaRouter"
+    },
     "ollamaUrlPlaceholder": {
         "message": "Saisissez l'URL de votre serveur Ollama (ex. http://localhost:11434)",
         "description": "Texte de remplacement pour le champ de saisie de l'URL Ollama."
@@ -102,6 +111,13 @@
     "openrouterModelHint": {
         "message": "Seuls les modèles gratuits qui prennent en charge l'entrée d'images sont affichés.",
         "description": "Astuce pour la sélection d'un modèle OpenRouter."
+    },
+    "orcarouterModelHint": {
+        "message": "Affiche les modèles de chat acceptant texte et images, avec les modèles gratuits en premier. Les modèles payants peuvent entraîner des frais."
+    },
+    "orcarouterFreeModelLabel": {
+        "message": "🆓 $model$",
+        "placeholders": { "model": { "content": "$1" } }
     },
     "ollamaModelHint": {
         "message": "Sélectionnez n'importe quel modèle que vous avez installé localement dans Ollama.",
@@ -154,6 +170,18 @@
                 "example": "Erreur réseau."
             }
         }
+    },
+    "orcarouterFetchFailed": {
+        "message": "Liste des modèles indisponible"
+    },
+    "orcarouterModelUnavailable": {
+        "message": "Le modèle enregistré n’est plus disponible. Choisissez-en un autre."
+    },
+    "orcarouterChooseModel": {
+        "message": "Choisir un modèle"
+    },
+    "orcarouterNoModels": {
+        "message": "Aucun modèle compatible texte et image disponible."
     },
     "statusApiKeySaved": {
         "message": "Clé API enregistrée. Récupération des modèles...",
