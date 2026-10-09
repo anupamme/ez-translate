@@ -251,9 +251,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function isValidOllamaUrl(ollamaUrl) {
+        try {
+            const parsed = new URL(ollamaUrl);
+            return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+        } catch {
+            return false;
+        }
+    }
+
     async function fetchOllamaModels(ollamaUrl) {
         const modelSelect = elements.providers.ollama.modelSelect;
         modelSelect.innerHTML = `<option>${chrome.i18n.getMessage('statusFetchingModels')}</option>`;
+        if (!isValidOllamaUrl(ollamaUrl)) {
+            modelSelect.innerHTML = `<option>${chrome.i18n.getMessage('statusModelsFailed', ['Invalid Ollama URL'])}</option>`;
+            showStatus(chrome.i18n.getMessage('statusModelsFailed', ['Invalid Ollama URL']), 'error');
+            return;
+        }
         try {
             const response = await fetch(`${ollamaUrl}/api/tags`);
             if (!response.ok) throw new Error('Failed to connect to Ollama server');
